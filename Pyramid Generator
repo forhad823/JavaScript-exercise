@@ -1,0 +1,74 @@
+/**
+ * Generates a pyramid pattern with the given number of floors.
+ * Each floor has an increasing number of '#' characters centered with spaces.
+ *
+ * @param {number} floor - The number of floors in the pyramid.
+ */
+function pyr_gen(floor) {
+  // The initial step is equal to the number of floors.
+  let step = floor;
+  
+  // Define the space character.
+  const space = " ";
+  
+  // Calculate the maximum number of stones (i.e., '#' characters) at the base of the pyramid.
+  const stone = floor * 2 - 1;
+
+  // Loop from the top floor to the base floor.
+  for (let h = floor; h > 0; h--) {
+    // Initialize an empty string to build the current floor's pattern.
+    let result = "";
+
+    // Add leading spaces to center the stones on the current floor.
+    // The number of spaces decreases as we go down the floors.
+    for (let j = 1; j < step; j++) {
+      result += space;
+    }
+
+    // Add stones ('#' characters) for the current floor.
+    // The number of stones increases as we go down the floors.
+    for (let i = stone; i > step * 2 - 2; i--) {
+      result += "#";
+    }
+
+    // Output the constructed pattern for the current floor.
+    console.log(result);
+    
+    // Decrement the step to move to the next lower floor.
+    step--;
+  }
+}
+
+// Example usage: Generate a pyramid with 10 floors.
+pyr_gen(5);
+
+
+/*
+Explanation of Comments:
+Function Documentation:
+
+A description of what the function does.
+The parameter it takes, with a brief explanation.
+Inline Comments:
+
+Initialization: Explain what step, space, and stone represent.
+Main Loop: Describe the purpose of the loop and what it iterates over.
+Result Initialization: Clarify that result is built anew for each floor.
+Leading Spaces: Detail how spaces are added to center the pyramid.
+Stones Addition: Explain how the stones are added and why the number changes.
+Output: Indicate that the constructed string is printed.
+Step Decrement: Mention that step is decremented to move to the next lower floor.
+
+Output of the Code:
+         #
+        ###
+       #####
+      #######
+     #########
+    ###########
+   #############
+  ###############
+ #################
+###################
+
+*/
